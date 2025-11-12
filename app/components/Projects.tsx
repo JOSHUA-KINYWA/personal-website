@@ -47,23 +47,23 @@ export default function Projects() {
   return (
     <section id="projects" className="section-padding bg-white">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
             <span className="text-gradient">Featured</span> Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-          <p className="text-xl text-slate-600 mt-6 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 mt-4 max-w-2xl mx-auto">
             Showcasing my latest work and innovative solutions
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div 
               key={index}
               className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-lg card-hover group"
             >
               {/* Project Image */}
-              <div className="relative w-full h-56 overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
+              <div className="relative w-full h-48 md:h-56 overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
                 <img
                   src={project.image}
                   alt={project.name}
@@ -78,16 +78,16 @@ export default function Projects() {
               </div>
               
               {/* Project Content */}
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
                   {project.name}
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
+                <p className="text-slate-600 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
                   {project.description}
                 </p>
                 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={techIndex}
