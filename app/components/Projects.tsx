@@ -1,6 +1,7 @@
 'use client';
 
-import Image from "next/image";
+import Carousel from './Carousel';
+import Image from 'next/image';
 
 interface Project {
   name: string;
@@ -15,6 +16,33 @@ interface Project {
 export default function Projects() {
   // Featured projects with online images
   const projects: Project[] = [
+    {
+      name: "Real Estate Management System",
+      description: "A comprehensive web-based platform for managing real estate properties, landlords, agents, and tenants. Features include property management, agent assignment, commission tracking, tenant portal, payment management, and admin dashboard with full system administration.",
+      tech: ["TypeScript", "Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
+      github: "https://github.com/JOSHUA-KINYWA/Real-Estate-management-System",
+      demo: null,
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&q=80",
+      category: "Real Estate"
+    },
+    {
+      name: "Professional Portfolio Platform",
+      description: "A modern, fully-responsive portfolio website platform built with Next.js. Features include dynamic content management, SEO optimization, dark mode support, interactive animations, and seamless user experience. Designed for professionals to showcase their work, skills, and achievements with a clean, modern interface.",
+      tech: ["TypeScript", "Next.js", "Tailwind CSS", "React"],
+      github: "https://github.com/JOSHUA-KINYWA/Mwini-profile",
+      demo: "https://mwini-profile.vercel.app",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop&q=80",
+      category: "Portfolio Platform"
+    },
+    {
+      name: "Data Science & Analysis Projects",
+      description: "A collection of data science and data analysis projects showcasing machine learning models, statistical analysis, data visualization, and predictive analytics. Includes various datasets and real-world problem-solving approaches.",
+      tech: ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn", "Jupyter"],
+      github: "https://github.com/JOSHUA-KINYWA/data-science-data-analysis-Projects",
+      demo: null,
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80",
+      category: "Data Science"
+    },
     {
       name: "Code E-Commerce Platform",
       description: "A full-featured e-commerce platform built with modern web technologies. Features include product catalog, shopping cart, user authentication, payment integration, and admin dashboard for managing products and orders.",
@@ -56,63 +84,82 @@ export default function Projects() {
             Showcasing my latest work and innovative solutions
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-lg card-hover group"
-            >
-              {/* Project Image */}
-              <div className="relative w-full h-48 md:h-56 overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <span className="inline-block px-4 py-1.5 bg-white/95 backdrop-blur-sm text-blue-700 rounded-full text-xs font-bold shadow-lg">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-              
-              {/* Project Content */}
-              <div className="p-6 md:p-8">
-                <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
-                  {project.name}
-                </h3>
-                <p className="text-slate-600 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
-                  {project.description}
-                </p>
-                
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
-                  {project.tech.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-4 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 rounded-lg text-xs font-semibold border border-blue-200"
-                    >
-                      {tech}
+        <div className="max-w-7xl mx-auto">
+          <Carousel itemsPerView={3} autoPlay={true} autoPlayInterval={5000}>
+            {projects.map((project) => (
+              <div 
+                key={`${project.name}-${project.github}`}
+                className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-lg card-hover group h-full flex flex-col"
+              >
+                {/* Project Image */}
+                <div className="relative w-full h-48 md:h-56 overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 flex-shrink-0">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} - ${project.category} project`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-block px-4 py-1.5 bg-white/95 backdrop-blur-sm text-blue-700 rounded-full text-xs font-bold shadow-lg">
+                      {project.category}
                     </span>
-                  ))}
+                  </div>
                 </div>
                 
-                {/* Action Button */}
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                  View on GitHub
-                </a>
+                {/* Project Content */}
+                <div className="p-6 md:p-8 flex-grow flex flex-col">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 md:mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
+                    {project.name}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed mb-4 md:mb-6 text-sm md:text-base flex-grow">
+                    {project.description}
+                  </p>
+                  
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={`${project.name}-${tech}`}
+                        className="px-4 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 rounded-lg text-xs font-semibold border border-blue-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                    >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      GitHub
+                    </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 border border-slate-300"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </Carousel>
         </div>
       </div>
     </section>
