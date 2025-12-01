@@ -64,7 +64,9 @@ export default function ResumePage() {
                 </a>
               </div>
               <div>
-                <span>Website:</span>
+                <a href="https://personal-website-delta-nine-55.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Website
+                </a>
               </div>
             </div>
           </div>
