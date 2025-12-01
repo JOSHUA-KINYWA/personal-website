@@ -43,7 +43,7 @@ export default function Home() {
     { href: '#skills', label: 'Skills' },
   ];
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white max-w-full overflow-x-hidden pt-0">
       {/* Skip to Content Link for Accessibility */}
       <a
         href="#about"
@@ -68,12 +68,12 @@ export default function Home() {
       </a>
 
       {/* Navigation */}
-      <nav className={`sticky top-0 z-[100] transition-all duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled 
           ? 'bg-white shadow-lg border-b border-slate-200' 
-          : 'bg-white/98 backdrop-blur-xl shadow-md border-b border-slate-200'
+          : 'bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200'
       }`}>
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4">
             <a 
               href="#about" 
@@ -160,33 +160,35 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with About - Two Column Layout */}
-      <section id="about" className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
-        </div>
+      <section id="about" className="relative min-h-[85vh] flex items-center text-white overflow-hidden py-8 md:py-12 mt-0">
+        <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 rounded-3xl overflow-hidden">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+            </div>
 
-        <div className="container-custom relative z-10 py-12 md:py-16">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="relative z-10 py-8 md:py-12 px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Side - Introduction */}
             <div className="text-center lg:text-left">
-              <div className="inline-block mb-6 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs md:text-sm font-medium">
+              <div className="inline-block mb-4 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs md:text-sm font-medium">
                 👋 Available for Hire
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                 Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Joshua</span>
                 <br />
                 <span className="text-white">Kinywa</span>
               </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-4 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl lg:text-2xl text-slate-300 mb-3 leading-relaxed font-medium">
                 I&apos;m a <TypingAnimation words={["Software Engineer", "Data Scientist", "Full Stack Developer", "Machine Learning Engineer"]} />
               </p>
-              <p className="text-base md:text-lg text-slate-400 mb-8">
+              <p className="text-sm md:text-base text-slate-400 mb-6">
                 Building intelligent solutions that transform data into actionable insights
               </p>
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-6">
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-4">
                 <a 
                   href="#contact"
                   className="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-xl transition-all duration-300 font-semibold shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-1 text-base md:text-lg"
@@ -229,11 +231,11 @@ export default function Home() {
 
             {/* Right Side - About Me */}
             <div className="lg:pl-8">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center lg:text-left">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 md:p-6">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center lg:text-left">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">About</span> Me
                 </h2>
-                <div className="space-y-4 text-slate-200 text-sm md:text-base leading-relaxed">
+                <div className="space-y-3 text-slate-200 text-xs md:text-sm leading-relaxed">
                   <p>
                     I&apos;m a passionate Software Engineer with a strong foundation in data analytics, machine learning, and software development. 
                     My journey combines technical expertise with a deep understanding of how data can drive meaningful business decisions.
@@ -250,21 +252,23 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+              </div>
+            </div>
 
-        {/* Scroll Indicator */}
-        <button
-          onClick={scrollToNext}
-          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group"
-          aria-label="Scroll to projects"
-        >
-          <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-            <svg className="w-6 h-6 md:w-7 md:h-7 text-white/80 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* Scroll Indicator */}
+            <button
+              onClick={scrollToNext}
+              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group z-20"
+              aria-label="Scroll to projects"
+            >
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                <svg className="w-6 h-6 md:w-7 md:h-7 text-white/80 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
+              </div>
+            </button>
+          </div>
         </div>
-        </button>
       </section>
 
       {/* Projects Section */}
@@ -290,14 +294,14 @@ export default function Home() {
                   <div className="w-16 h-16 rounded-lg bg-white p-2 flex-shrink-0 border border-slate-200 relative">
                     <Image src="/images/i3.jpeg" alt="i3 Technologies logo" fill className="object-contain" sizes="64px" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                      Software Engineer Intern
-                    </h3>
-                    <p className="text-blue-600 font-semibold mb-1 text-lg">
-                      i3 Technologies
-                    </p>
-                    <p className="text-slate-500">Nairobi, Kenya</p>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Software Engineer Intern
+                  </h3>
+                  <p className="text-blue-600 font-semibold mb-1 text-lg">
+                    i3 Technologies
+                  </p>
+                  <p className="text-slate-500">Nairobi, Kenya</p>
                   </div>
                 </div>
                 <span className="mt-2 md:mt-0 px-5 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 rounded-full text-sm font-semibold border border-blue-200">
@@ -327,14 +331,14 @@ export default function Home() {
                   <div className="w-16 h-16 rounded-lg bg-white p-2 flex-shrink-0 border border-slate-200 relative">
                     <Image src="/images/ueab.jpeg" alt="University of Eastern Africa, Baraton logo" fill className="object-contain" sizes="64px" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                      Data Science Google Developer Club Lead
-                    </h3>
-                    <p className="text-purple-600 font-semibold mb-1 text-lg">
-                      University of Eastern Africa, Baraton
-                    </p>
-                    <p className="text-slate-500">Eldoret, Kenya</p>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Data Science Google Developer Club Lead
+                  </h3>
+                  <p className="text-purple-600 font-semibold mb-1 text-lg">
+                    University of Eastern Africa, Baraton
+                  </p>
+                  <p className="text-slate-500">Eldoret, Kenya</p>
                   </div>
                 </div>
                 <span className="mt-2 md:mt-0 px-5 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full text-sm font-semibold border border-purple-200">
@@ -368,14 +372,14 @@ export default function Home() {
                   <div className="w-16 h-16 rounded-lg bg-white p-2 flex-shrink-0 border border-slate-200 relative">
                     <Image src="/images/compweb.png" alt="CompWeb Software Solutions logo" fill className="object-contain" sizes="64px" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                      Software Engineer Intern
-                    </h3>
-                    <p className="text-green-600 font-semibold mb-1 text-lg">
-                      CompWeb Software Solutions EA Ltd
-                    </p>
-                    <p className="text-slate-500">Nairobi, Kenya</p>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Software Engineer Intern
+                  </h3>
+                  <p className="text-green-600 font-semibold mb-1 text-lg">
+                    CompWeb Software Solutions EA Ltd
+                  </p>
+                  <p className="text-slate-500">Nairobi, Kenya</p>
                   </div>
                 </div>
                 <span className="mt-2 md:mt-0 px-5 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 rounded-full text-sm font-semibold border border-green-200">
@@ -405,14 +409,14 @@ export default function Home() {
                   <div className="w-16 h-16 rounded-lg bg-white p-2 flex-shrink-0 border border-slate-200 relative">
                     <Image src="/images/techup.jpeg" alt="TechUp Africa logo" fill className="object-contain" sizes="64px" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                      Data Science Mentee
-                    </h3>
-                    <p className="text-orange-600 font-semibold mb-1 text-lg">
-                      TechUp Africa
-                    </p>
-                    <p className="text-slate-500">Virtual Program</p>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Data Science Mentee
+                  </h3>
+                  <p className="text-orange-600 font-semibold mb-1 text-lg">
+                    TechUp Africa
+                  </p>
+                  <p className="text-slate-500">Virtual Program</p>
                   </div>
                 </div>
                 <span className="mt-2 md:mt-0 px-5 py-2 bg-gradient-to-r from-orange-100 to-amber-100 text-orange-700 rounded-full text-sm font-semibold border border-orange-200">
@@ -597,42 +601,42 @@ export default function Home() {
             <div className="space-y-6">
               <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-slate-200 shadow-sm card-hover">
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  Eng. Kelvin Mayaka
-                </h3>
+                Eng. Kelvin Mayaka
+              </h3>
                 <p className="text-blue-600 font-semibold mb-4 text-sm">Lecturer, Baraton University</p>
                 <div className="space-y-2 text-slate-700 text-sm">
                   <a href="tel:+254717420317" className="flex items-center gap-2 hover:text-blue-600 transition-colors font-medium">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    +254 717 420317
-                  </a>
+                  +254 717 420317
+                </a>
                   <a href="mailto:mayaka@ueab.ac.ke" className="flex items-center gap-2 hover:text-blue-600 transition-colors font-medium">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    mayaka@ueab.ac.ke
-                  </a>
-                </div>
+                  mayaka@ueab.ac.ke
+                </a>
               </div>
+            </div>
               <div className="bg-gradient-to-br from-slate-50 to-purple-50 rounded-2xl p-6 border border-slate-200 shadow-sm card-hover">
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  Dr. Roseline Nyamwamu
-                </h3>
+                Dr. Roseline Nyamwamu
+              </h3>
                 <p className="text-purple-600 font-semibold mb-4 text-sm">Senior Lecturer, Baraton University</p>
                 <div className="space-y-2 text-slate-700 text-sm">
                   <a href="tel:+254720621741" className="flex items-center gap-2 hover:text-purple-600 transition-colors font-medium">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    +254 720 621741
-                  </a>
+                  +254 720 621741
+                </a>
                   <a href="mailto:rose@ueab.ac.ke" className="flex items-center gap-2 hover:text-purple-600 transition-colors font-medium">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    rose@ueab.ac.ke
-                  </a>
+                  rose@ueab.ac.ke
+                </a>
                 </div>
               </div>
             </div>
@@ -644,18 +648,22 @@ export default function Home() {
             >
               Send Me an Email
             </a>
-            <a 
+            <a
               href="/resume"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg border border-slate-300"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-xl transition-all duration-300 font-semibold shadow-xl hover:shadow-2xl hover:shadow-purple-500/50 transform hover:-translate-y-2 hover:scale-105 text-lg overflow-hidden"
               aria-label="View and download Joshua Kinywa Resume"
             >
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
+              <svg className="w-6 h-6 relative z-10 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="relative z-10 flex items-center gap-2">
+                <span>View Resume</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-                View Resume
               </span>
             </a>
           </div>
@@ -679,9 +687,9 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-300 py-16">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-12">
+      <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-300 py-12 md:py-16">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
             {/* About Section */}
             <div className="text-center md:text-left">
               <h3 className="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -819,10 +827,10 @@ export default function Home() {
           </div>
 
           {/* Divider */}
-          <div className="pt-8 border-t border-slate-800">
+          <div className="pt-6 md:pt-8 border-t border-slate-800">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="text-center md:text-left text-sm text-slate-500">
-            © {new Date().getFullYear()} Joshua Kinywa. All rights reserved.
+                © {new Date().getFullYear()} Joshua Kinywa. All rights reserved.
               </div>
               <div className="text-sm text-slate-500 text-center md:text-right">
                 Built with <span className="text-red-500">❤</span> using Next.js & Tailwind CSS
